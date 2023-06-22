@@ -60,39 +60,30 @@ public class YandexSamokatTest {
         // переход на страницу тестового приложения
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage mainPage = new MainPage(driver);
-        wait = new WebDriverWait(driver, 10);
         //ищем первый вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion1 = mainPage.answerOnFirstQuestion();
         assertEquals("Сутки — 400 рублей. Оплата курьеру — наличными или картой.",
-                answerOnQuestion1);
+                mainPage.answerOnQuestion(1));
         //ищем второй вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion2 = mainPage.answerOnSecondQuestion();
         assertEquals("Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.",
-                answerOnQuestion2);
+                mainPage.answerOnQuestion(2));
         //ищем третий вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion3 = mainPage.answerOnThirdQuestion();
         assertEquals("Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.",
-                answerOnQuestion3);
+                mainPage.answerOnQuestion(3));
         //ищем четвертый вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion4 = mainPage.answerOnFourthQuestion();
         assertEquals("Только начиная с завтрашнего дня. Но скоро станем расторопнее.",
-                answerOnQuestion4);
+                mainPage.answerOnQuestion(4));
         //ищем пятый вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion5 = mainPage.answerOnFifthQuestion();
         assertEquals("Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.",
-                answerOnQuestion5);
+                mainPage.answerOnQuestion(5));
         //ищем шестой вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion6 = mainPage.answerOnSixthQuestion();
         assertEquals("Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.",
-                answerOnQuestion6);
+                mainPage.answerOnQuestion(6));
         //ищем седьмой вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion7 = mainPage.answerOnSeventhQuestion();
         assertEquals("Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.",
-                answerOnQuestion7);
+                mainPage.answerOnQuestion(7));
         //ищем восьмой вопрос и кликаем на него и сверяем шаблон ответа
-        String answerOnQuestion8 = mainPage.answerOnEighthQuestion();
         assertEquals("Да, обязательно. Всем самокатов! И Москве, и Московской области.",
-                answerOnQuestion8);
+                mainPage.answerOnQuestion(8));
 
     }
 
