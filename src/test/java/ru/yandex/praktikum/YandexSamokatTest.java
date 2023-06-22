@@ -3,7 +3,6 @@ package ru.yandex.praktikum;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,7 +52,7 @@ public class YandexSamokatTest {
 
     @After
     public void quitBrowser() {
-        driver.quit();
+        driver.close();
     }
 
     @Test
@@ -63,56 +62,37 @@ public class YandexSamokatTest {
         MainPage mainPage = new MainPage(driver);
         wait = new WebDriverWait(driver, 10);
         //ищем первый вопрос и кликаем на него и сверяем шаблон ответа
-        WebElement question1 = driver.findElement(mainPage.question1);
-        WebElement answer1 = driver.findElement(mainPage.answer1);
-        //используем JavascriptExecutor для скроллинга до первого элемента
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", question1);
-        question1.click();
-        wait.until(ExpectedConditions.visibilityOf(answer1));
+        String answerOnQuestion1 = mainPage.answerOnFirstQuestion();
         assertEquals("Сутки — 400 рублей. Оплата курьеру — наличными или картой.",
-                answer1.getText());
+                answerOnQuestion1);
         //ищем второй вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question2).click();
-        WebElement answer2 = driver.findElement(mainPage.answer2);
-        wait.until(ExpectedConditions.visibilityOf(answer2));
+        String answerOnQuestion2 = mainPage.answerOnSecondQuestion();
         assertEquals("Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.",
-                answer2.getText());
+                answerOnQuestion2);
         //ищем третий вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question3).click();
-        WebElement answer3 = driver.findElement(mainPage.answer3);
-        wait.until(ExpectedConditions.visibilityOf(answer3));
+        String answerOnQuestion3 = mainPage.answerOnThirdQuestion();
         assertEquals("Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.",
-                answer3.getText());
+                answerOnQuestion3);
         //ищем четвертый вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question4).click();
-        WebElement answer4 = driver.findElement(mainPage.answer4);
-        wait.until(ExpectedConditions.visibilityOf(answer4));
+        String answerOnQuestion4 = mainPage.answerOnFourthQuestion();
         assertEquals("Только начиная с завтрашнего дня. Но скоро станем расторопнее.",
-                answer4.getText());
+                answerOnQuestion4);
         //ищем пятый вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question5).click();
-        WebElement answer5 = driver.findElement(mainPage.answer5);
-        wait.until(ExpectedConditions.visibilityOf(answer5));
+        String answerOnQuestion5 = mainPage.answerOnFifthQuestion();
         assertEquals("Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.",
-                answer5.getText());
+                answerOnQuestion5);
         //ищем шестой вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question6).click();
-        WebElement answer6 = driver.findElement(mainPage.answer6);
-        wait.until(ExpectedConditions.visibilityOf(answer6));
+        String answerOnQuestion6 = mainPage.answerOnSixthQuestion();
         assertEquals("Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.",
-                answer6.getText());
+                answerOnQuestion6);
         //ищем седьмой вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question7).click();
-        WebElement answer7 = driver.findElement(mainPage.answer7);
-        wait.until(ExpectedConditions.visibilityOf(answer7));
+        String answerOnQuestion7 = mainPage.answerOnSeventhQuestion();
         assertEquals("Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.",
-                answer7.getText());
+                answerOnQuestion7);
         //ищем восьмой вопрос и кликаем на него и сверяем шаблон ответа
-        driver.findElement(mainPage.question8).click();
-        WebElement answer8 = driver.findElement(mainPage.answer8);
-        wait.until(ExpectedConditions.visibilityOf(answer8));
+        String answerOnQuestion8 = mainPage.answerOnEighthQuestion();
         assertEquals("Да, обязательно. Всем самокатов! И Москве, и Московской области.",
-                answer8.getText());
+                answerOnQuestion8);
 
     }
 
