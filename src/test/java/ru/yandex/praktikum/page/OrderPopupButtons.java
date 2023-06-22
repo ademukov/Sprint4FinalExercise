@@ -8,7 +8,7 @@ public class OrderPopupButtons {
 
     private WebDriver driver;
     //кнопка Нет
-    public By buttonNo = By.xpath("/html/body/div[1]/div/div[2]/div[5]/div[2]/button[1]");
+    public By buttonNo = By.xpath("//button[text()='Нет']");
     //кнопка Да
     public By buttonYes = By.xpath("//button[text()='Да']");
 
