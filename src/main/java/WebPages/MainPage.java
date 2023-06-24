@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.page;
+package WebPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
