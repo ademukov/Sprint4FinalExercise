@@ -8,13 +8,17 @@ public class OrderPopupButtons {
 
     private WebDriver driver;
     //кнопка Нет
-    public By buttonNo = By.xpath("//button[text()='Нет']");
+    private By buttonNo = By.xpath("//button[text()='Нет']");
     //кнопка Да
-    public By buttonYes = By.xpath("//button[text()='Да']");
+    private By buttonYes = By.xpath("//button[text()='Да']");
 
     public OrderPopupButtons(WebDriver driver) {
+
         this.driver = driver;
     }
+
+    //нажать кнопку Да
+    public void clickYesButton() {
+        driver.findElement(buttonYes).click();
+    }
 }
-//выбрать вопрос из списка вопросов и нажать на стрелку
-//проверить соответствие текста ответа на выбранный вопрос шаблону
