@@ -18,7 +18,7 @@ public class YandexSamokatTest {
 
     @Before
     public void setup() {
-        if ("Chrome".equals(System.getProperty("browserame"))) {
+        if ("Chrome".equals(System.getProperty("browsername"))) {
             setupChromeDriver();
         } else {
             setupFireFox();

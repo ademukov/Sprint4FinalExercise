@@ -27,7 +27,7 @@ public class MainPage {
         WebElement elementQuestion = driver.findElement(
                 By.xpath(format(QUESTION_TEMPLATE, index)));
         //используем JavascriptExecutor для скроллинга до первого элемента
-        ((JavascriptExecutor) driver)
+        if (index == 0) ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].scrollIntoView();", elementQuestion);
         elementQuestion.click();
         return new WebDriverWait(driver, 10)
